@@ -1,9 +1,14 @@
-import { Hero } from "./components";
+import { Navbar, Hero } from "./components";
+
+import { BrowserRouter } from "react-router-dom";
 
 export default function App() {
   return (
-    <div className="bg-primary">
-      <Hero />
-    </div>
+    <BrowserRouter>
+      <div className="bg-primary">
+        <Navbar />
+        <Hero />
+      </div>
+    </BrowserRouter>
   );
 }
