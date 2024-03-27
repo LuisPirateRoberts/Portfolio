@@ -1,8 +1,7 @@
 import { Navbar, Hero } from "./components";
-
 import { BrowserRouter } from "react-router-dom";
 
-export default function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="bg-primary">
@@ -11,4 +10,6 @@ export default function App() {
       </div>
     </BrowserRouter>
   );
-}
+};
+
+export default App;

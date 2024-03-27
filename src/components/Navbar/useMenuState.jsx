@@ -1,11 +1,17 @@
 import { useState } from "react";
 
-export const useMenuState = () => {
-  const [showMenu, setShowMenu] = useState(false);
+const useMenuState = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleMenuClick = () => {
-    setShowMenu(!showMenu);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
-  return { showMenu, handleMenuClick };
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  return { isMenuOpen, toggleMenu, closeMenu };
 };
+
+export default useMenuState;

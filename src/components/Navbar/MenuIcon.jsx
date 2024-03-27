@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import "./styles/MenuIcon.css";
 
-const MenuIcon = ({ onClick }) => {
+const MenuIcon = ({ isMenuOpen, toggleMenu }) => {
+  const [clicked, setClicked] = useState(false);
+
   return (
-    <div className="cursor-pointer" onClick={onClick}>
-      <FontAwesomeIcon icon={faBars} size="2x" className="text-white" />
-    </div>
+    <FontAwesomeIcon
+      icon={isMenuOpen ? faTimes : faBars}
+      className={`text-white text-4xl cursor-pointer ${
+        isMenuOpen ? "rotate" : clicked ? "rotateBack" : ""
+      }`}
+      onClick={() => {
+        setClicked(true);
+        toggleMenu();
+      }}
+    />
   );
 };
 

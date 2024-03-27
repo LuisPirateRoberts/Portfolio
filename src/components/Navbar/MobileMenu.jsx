@@ -1,34 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import MenuIcon from "./MenuIcon";
+import MenuItem from "./MenuItem";
+import { styles } from "../../styles";
 
-const MobileMenu = ({ onClick }) => {
+const MobileMenu = ({ isMenuOpen, menuItems, closeMenu }) => {
   return (
     <div
-      className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-100 flex justify-center items-center menu-animation"
-      onClick={onClick}
+      className={`bg-primary fixed inset-0 bg-da z-50 ${
+        isMenuOpen ? "" : "hidden"
+      }`}
     >
-      <ul className="text-white text-2xl">
-        <li className="my-4">
-          <Link to="/about" onClick={onClick}>
-            About
-          </Link>
-        </li>
-        <li className="my-4">
-          <Link to="/experience" onClick={onClick}>
-            Experience
-          </Link>
-        </li>
-        <li className="my-4">
-          <Link to="/projects" onClick={onClick}>
-            Projects
-          </Link>
-        </li>
-        <li className="my-4">
-          <Link to="/contact" onClick={onClick}>
-            Contact
-          </Link>
-        </li>
-      </ul>
+      <div className="flex justify-end p-4">
+        <MenuIcon isMenuOpen={isMenuOpen} toggleMenu={closeMenu} />
+      </div>
+      <div className={`flex flex-col h-full ${styles.padding}`}>
+        {menuItems.map((item, index) => (
+          <MenuItem
+            key={index}
+            text={item.text}
+            link={item.link}
+            onClick={closeMenu}
+          />
+        ))}
+      </div>
     </div>
   );
 };

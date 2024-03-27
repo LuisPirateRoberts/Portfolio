@@ -1,54 +1,51 @@
 import React from "react";
+
+import { Link } from "react-router-dom";
 import { styles } from "../../styles";
+import { logo } from "../../assets";
+
 import MenuIcon from "./MenuIcon";
 import MobileMenu from "./MobileMenu";
-import { useMenuState } from "./useMenuState";
-import { useWindowSize } from "./useWindowSize";
-import { Link } from "react-router-dom";
+import useMenuState from "./useMenuState";
+import useWindowSize from "./useWindowSize";
 
 const Navbar = () => {
-  const { showMenu, handleMenuClick } = useMenuState();
-  const { width } = useWindowSize();
+  const { isMenuOpen, toggleMenu, closeMenu } = useMenuState();
+  const windowSize = useWindowSize();
+  const menuItems = [
+    { text: "About", link: "/about" },
+    { text: "Experience", link: "/experience" },
+    { text: "Projects", link: "/projects" },
+    { text: "Contact", link: "/contact" },
+  ];
 
   return (
-    <nav
-      className={`${styles.padding} ${styles.heroParagraphText} flex justify-end items-center`}
-    >
-      {width <= 500 ? (
+    <nav className="bg-black text-white p-4 flex justify-between items-center">
+      <div>
+        <Link to="/" className="flex items-center">
+          <img src={logo} alt="Logo" className="h-8 mr-2" />
+        </Link>
+      </div>
+      {windowSize.width <= 830 ? (
         <>
-          {showMenu && <MobileMenu onClick={handleMenuClick} />}
-          {!showMenu && <MenuIcon onClick={handleMenuClick} />}
+          <MenuIcon isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+          <MobileMenu
+            isMenuOpen={isMenuOpen}
+            menuItems={menuItems}
+            closeMenu={closeMenu}
+          />
         </>
       ) : (
         <div className="flex items-center">
-          <Link
-            to="/about"
-            className="mr-6 hover:text-white transition-colors duration-300"
-            onClick={handleMenuClick}
-          >
-            About
-          </Link>
-          <Link
-            to="/experience"
-            className="mr-6 hover:text-white transition-colors duration-300"
-            onClick={handleMenuClick}
-          >
-            Experience
-          </Link>
-          <Link
-            to="/projects"
-            className="mr-6 hover:text-white transition-colors duration-300"
-            onClick={handleMenuClick}
-          >
-            Projects
-          </Link>
-          <Link
-            to="/contact"
-            className="hover:text-white transition-colors duration-300"
-            onClick={handleMenuClick}
-          >
-            Contact
-          </Link>
+          {menuItems.map((item, index) => (
+            <Link
+              key={index}
+              to={item.link}
+              className={`${styles.heroParagraphText} mx-4 hover:text-white transition-colors duration-300`}
+            >
+              {item.text}
+            </Link>
+          ))}
         </div>
       )}
     </nav>

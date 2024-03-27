@@ -1,13 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { styles } from "../../styles";
 
-const MenuItem = ({ children, to, onClick }) => {
+const MenuItem = ({ text, link, onClick }) => {
+  const handleClick = () => {
+    onClick();
+  };
+
   return (
-    <li className="my-4">
-      <Link to={to} className="text-white text-2xl" onClick={onClick}>
-        {children}
+    <div className="w-full">
+      <Link
+        to={link}
+        className={`block my-4 hover:text-white transition-colors duration-300 ${styles.navMobileText}`}
+        onClick={handleClick}
+      >
+        {text}
       </Link>
-    </li>
+    </div>
   );
 };
 
