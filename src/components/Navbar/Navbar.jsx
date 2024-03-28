@@ -1,9 +1,7 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import { styles } from "../../styles";
 import { logo } from "../../assets";
-
 import MenuIcon from "./MenuIcon";
 import MobileMenu from "./MobileMenu";
 import useMenuState from "./useMenuState";
@@ -19,6 +17,10 @@ const Navbar = () => {
     { text: "Contact", link: "/contact" },
   ];
 
+  const toggleBodyScroll = (enableScroll) => {
+    document.body.style.overflow = enableScroll ? "auto" : "hidden";
+  };
+
   return (
     <nav className="bg-black text-white p-4 flex justify-between items-center">
       <div>
@@ -26,13 +28,14 @@ const Navbar = () => {
           <img src={logo} alt="Logo" className="h-8 mr-2" />
         </Link>
       </div>
-      {windowSize.width <= 830 ? (
+      {windowSize.width <= 500 ? (
         <>
           <MenuIcon isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
           <MobileMenu
             isMenuOpen={isMenuOpen}
             menuItems={menuItems}
             closeMenu={closeMenu}
+            toggleBodyScroll={toggleBodyScroll}
           />
         </>
       ) : (
