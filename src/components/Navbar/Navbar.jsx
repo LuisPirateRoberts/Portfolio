@@ -25,7 +25,7 @@ const Navbar = () => {
     <nav className="bg-black text-white p-4 flex justify-between items-center">
       <div>
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="Logo" className="h-8 mr-2" />
+          <img src={logo} alt="Logo" className="h-8 mr-2 min-w-12" />
         </Link>
       </div>
       {windowSize.width <= 500 ? (

@@ -16,8 +16,8 @@ const MobileMenu = ({ isMenuOpen, menuItems, closeMenu, toggleBodyScroll }) => {
     <div
       className={`bg-primary fixed inset-0 z-50 ${
         isMenuOpen
-          ? "ease-out duration-300 transform translate-y-0"
-          : "ease-in duration-200 transform -translate-y-full"
+          ? "ease-out duration-300 opacity-100 pointer-events-auto"
+          : "ease-in duration-200 opacity-0 pointer-events-none"
       }`}
     >
       <div className="flex justify-end p-4">
