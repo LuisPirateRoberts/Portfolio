@@ -1,4 +1,4 @@
-import { Navbar, Hero } from "./components";
+import { Navbar, Hero, About } from "./components";
 import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
@@ -7,6 +7,7 @@ const App = () => {
       <div className="bg-primary">
         <Navbar />
         <Hero />
+        <About />
       </div>
     </BrowserRouter>
   );
