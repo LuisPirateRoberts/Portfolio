@@ -3,13 +3,17 @@ import { styles } from "../../styles";
 
 const Hero = () => {
   return (
-    <div className={`${styles.padding} pt-16 sm:pt-20 xs:pt-24`}>
-      <p className={styles.microText}>Hey, I'm</p>
-      <h1 className={styles.heroHeadText}>Luis Pinto</h1>
-      <p className={styles.heroSubText}>Frontend Developer</p>
-      <p className={`${styles.heroParagraphText} mt-5 max-w-lg leading-normal`}>
-        I can build web applications with great user experience.
-      </p>
+    <div className="relative w-full h-screen flex justify-left items-center">
+      <div className={`${styles.padding}`}>
+        <p className={styles.microText}>Hey, I'm</p>
+        <h1 className={styles.heroHeadText}>Luis Pinto</h1>
+        <p className={styles.heroSubText}>Frontend Developer</p>
+        <p
+          className={`${styles.heroParagraphText} mt-5 max-w-lg leading-normal`}
+        >
+          I can build web applications with great user experience.
+        </p>
+      </div>
     </div>
   );
 };
