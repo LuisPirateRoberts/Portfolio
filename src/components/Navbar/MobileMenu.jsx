@@ -14,7 +14,11 @@ const MobileMenu = ({ isMenuOpen, menuItems, closeMenu, toggleBodyScroll }) => {
 
   return (
     <div
-      className={`bg-primary fixed inset-0 z-50 ${isMenuOpen ? "" : "hidden"}`}
+      className={`bg-primary fixed inset-0 z-50 ${
+        isMenuOpen
+          ? "ease-out duration-300 transform translate-y-0"
+          : "ease-in duration-200 transform -translate-y-full"
+      }`}
     >
       <div className="flex justify-end p-4">
         <MenuIcon isMenuOpen={isMenuOpen} toggleMenu={closeMenu} />
