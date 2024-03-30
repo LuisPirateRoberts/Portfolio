@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import MenuIcon from "./MenuIcon";
-import MenuItem from "./MenuItem";
 import { styles } from "../../styles";
 
 const MobileMenu = ({ isMenuOpen, menuItems, closeMenu, toggleBodyScroll }) => {
@@ -11,6 +11,14 @@ const MobileMenu = ({ isMenuOpen, menuItems, closeMenu, toggleBodyScroll }) => {
       toggleBodyScroll(true);
     }
   }, [isMenuOpen, toggleBodyScroll]);
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      closeMenu();
+    }
+  };
 
   return (
     <div
@@ -27,12 +35,17 @@ const MobileMenu = ({ isMenuOpen, menuItems, closeMenu, toggleBodyScroll }) => {
         className={`flex flex-col ${styles.padding} overflow-y-auto max-h-screen pb-20`}
       >
         {menuItems.map((item, index) => (
-          <MenuItem
+          <Link
             key={index}
-            text={item.text}
-            link={item.link}
-            onClick={closeMenu}
-          />
+            to={item.link}
+            className={`${styles.navMobileText} my-2 hover:text-white transition-colors duration-300`}
+            onClick={() => {
+              scrollToSection(item.link);
+              closeMenu();
+            }}
+          >
+            {item.text}
+          </Link>
         ))}
       </div>
     </div>
