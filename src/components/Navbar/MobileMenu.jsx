@@ -22,7 +22,7 @@ const MobileMenu = ({ isMenuOpen, menuItems, closeMenu, toggleBodyScroll }) => {
 
   return (
     <div
-      className={`bg-primary fixed inset-0 z-50 ${
+      className={`bg-opacity-80 backdrop-blur-xl fixed inset-0 z-50 ${
         isMenuOpen
           ? "ease-out duration-300 opacity-100 pointer-events-auto"
           : "ease-in duration-200 opacity-0 pointer-events-none"
