@@ -64,7 +64,7 @@ const Navbar = () => {
           {menuItems.map((item, index) => (
             <Link
               key={index}
-              to={item.link}
+              to={`#${item.link}`}
               className={`${styles.heroParagraphText} mx-4 hover:text-white transition-colors duration-300 hover:scale-110 transform transition-transform`}
               onClick={() => scrollToSection(item.link)}
             >

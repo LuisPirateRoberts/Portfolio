@@ -37,7 +37,7 @@ const MobileMenu = ({ isMenuOpen, menuItems, closeMenu, toggleBodyScroll }) => {
         {menuItems.map((item, index) => (
           <Link
             key={index}
-            to={item.link}
+            to={`#${item.link}`}
             className={`${styles.navMobileText} my-2 hover:text-white transition-colors duration-300`}
             onClick={() => {
               scrollToSection(item.link);
