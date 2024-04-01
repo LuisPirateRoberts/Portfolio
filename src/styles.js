@@ -4,21 +4,21 @@ const styles = {
   padding: "sm:px-16 px-6 sm:py-16 py-10",
 
   heroHeadText:
-    "font-bold text-[#F5F5F7] lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2",
+    "font-bold text-[#F5F5F7] lg:text-[100px] sm:text-[75px] xs:text-[62.5px] text-[50px] lg:leading-[122px] mt-2", // Aumento proporcional de los tamaños de texto
   heroSubText:
-    "text-[#C9C9CA] font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px]",
+    "text-[#C9C9CA] font-medium lg:text-[37.5px] sm:text-[32.5px] xs:text-[25px] text-[20px] lg:leading-[50px]",
   heroParagraphText:
-    "text-[#9D9D9D] font-regular lg:text-[24px] sm:text-[20px] xs:text-[16px] text-[14px] lg:leading-[40px]",
+    "text-[#9D9D9D] font-regular lg:text-[30px] sm:text-[25px] xs:text-[20px] text-[17.5px] lg:leading-[50px]",
   microText:
-    "text-[#828282] font-regular lg:text-[20px] sm:text-[18px] xs:text-[16px] text-[14px] lg:leading-[40px] uppercase tracking-widest",
+    "text-[#828282] font-regular lg:text-[25px] sm:text-[22.5px] xs:text-[20px] text-[17.5px] lg:leading-[50px] uppercase tracking-widest",
 
   sectionHeadText:
-    "text-white font-bold md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]",
+    "text-white font-bold md:text-[75px] sm:text-[62.5px] xs:text-[50px] text-[37.5px]",
   sectionSubText:
-    "sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider",
+    "sm:text-[22.5px] text-[17.5px] text-secondary uppercase tracking-wider",
 
   navMobileText:
-    "font-medium text-[#9D9D9D] md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]",
+    "font-medium text-[#9D9D9D] md:text-[75px] sm:text-[62.5px] xs:text-[50px] text-[37.5px]",
 };
 
 export { styles };

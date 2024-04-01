@@ -2,7 +2,7 @@ import { styles } from "../../styles";
 
 const About = () => {
   return (
-    <div id="about" className={`${styles.padding}`}>
+    <div id="about" className={`${styles.padding} pt-40`}>
       <h1 className={styles.microText}>About me</h1>
       <div
         className={`${styles.heroParagraphText} mt-5 max-w-2xl leading-normal`}
