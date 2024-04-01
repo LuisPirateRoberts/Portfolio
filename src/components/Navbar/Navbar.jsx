@@ -46,7 +46,7 @@ const Navbar = () => {
     <nav
       className={`bg-black bg-opacity-40 ${
         isMenuOpen ? "" : "backdrop-blur-md"
-      } text-white p-4 flex justify-between items-center fixed top-0 w-full z-50 transition-transform ${
+      } text-white p-3 flex justify-between items-center fixed top-0 w-full z-50 transition-transform ${
         visible ? "" : "-translate-y-20"
       }`}
     >
