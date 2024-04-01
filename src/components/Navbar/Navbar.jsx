@@ -33,7 +33,7 @@ const Navbar = () => {
     <nav
       className={`bg-black bg-opacity-40 ${
         isMenuOpen ? "" : "backdrop-blur-md"
-      } text-white p-4 flex justify-between items-center fixed top-0 w-full z-50`}
+      } text-white p-4 flex justify-between items-center sticky top-0 w-full z-50`}
     >
       <div>
         <Link
