@@ -5,9 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="relative z-0 bg-primary">
+      <Navbar />
+      <div className="relative z-0 bg-primary pt-20">
         <div className="bg-cover bg-no-repeat bg-center">
-          <Navbar />
           <Hero />
         </div>
         <About />

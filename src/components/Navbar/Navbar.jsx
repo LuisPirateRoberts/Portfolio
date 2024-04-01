@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../../styles";
 import { logo } from "../../assets";
@@ -10,6 +10,9 @@ import useWindowSize from "./useWindowSize";
 const Navbar = () => {
   const { isMenuOpen, toggleMenu, closeMenu } = useMenuState();
   const windowSize = useWindowSize();
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
   const menuItems = [
     { text: "About", link: "about" },
     { text: "Experience", link: "experience" },
@@ -29,11 +32,23 @@ const Navbar = () => {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
+
   return (
     <nav
       className={`bg-black bg-opacity-40 ${
         isMenuOpen ? "" : "backdrop-blur-md"
-      } text-white p-4 flex justify-between items-center sticky top-0 w-full z-50`}
+      } text-white p-4 flex justify-between items-center fixed top-0 w-full z-50 transition-transform ${
+        visible ? "" : "-translate-y-20"
+      }`}
     >
       <div>
         <Link
