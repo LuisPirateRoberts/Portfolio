@@ -35,7 +35,10 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
-      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      const scrollingDown = prevScrollPos < currentScrollPos;
+      const isScrolledPastThreshold = currentScrollPos > 50;
+
+      setVisible(!scrollingDown || !isScrolledPastThreshold);
       setPrevScrollPos(currentScrollPos);
     };
     window.addEventListener("scroll", handleScroll);
@@ -46,7 +49,7 @@ const Navbar = () => {
     <nav
       className={`bg-black bg-opacity-40 ${
         isMenuOpen ? "" : "backdrop-blur-md"
-      } text-white p-3 flex justify-between items-center fixed top-0 w-full z-50 transition-transform ${
+      } text-white p-3 flex justify-between items-center sticky top-0 w-full z-50 transition-transform ${
         visible ? "" : "-translate-y-20"
       }`}
     >
