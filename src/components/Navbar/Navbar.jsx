@@ -39,8 +39,8 @@ const Navbar = () => {
       const scrollingDown = prevScrollPos < currentScrollPos;
 
       if (
-        (scrollingDown && lastVisibilityChange - currentScrollPos > 100) || // Hide after scrolling down 100px
-        (!scrollingDown && currentScrollPos - lastVisibilityChange > 1) // Show after scrolling up 50px
+        (scrollingDown && lastVisibilityChange - currentScrollPos > 50) || // Hide after scrolling down 50px
+        (!scrollingDown && currentScrollPos - lastVisibilityChange > 1) // Show after scrolling up 1px
       ) {
         setVisible(!scrollingDown);
         setLastVisibilityChange(currentScrollPos);
