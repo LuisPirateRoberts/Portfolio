@@ -12,6 +12,7 @@ const Navbar = () => {
   const windowSize = useWindowSize();
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [lastVisibilityChange, setLastVisibilityChange] = useState(0);
 
   const menuItems = [
     { text: "About", link: "about" },
@@ -36,14 +37,21 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
       const scrollingDown = prevScrollPos < currentScrollPos;
-      const isScrolledPastThreshold = currentScrollPos > 50;
 
-      setVisible(!scrollingDown || !isScrolledPastThreshold);
+      if (
+        (scrollingDown && lastVisibilityChange - currentScrollPos > 100) || // Hide after scrolling down 100px
+        (!scrollingDown && currentScrollPos - lastVisibilityChange > 1) // Show after scrolling up 50px
+      ) {
+        setVisible(!scrollingDown);
+        setLastVisibilityChange(currentScrollPos);
+      }
+
       setPrevScrollPos(currentScrollPos);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos]);
+  }, [prevScrollPos, lastVisibilityChange]);
 
   return (
     <nav
